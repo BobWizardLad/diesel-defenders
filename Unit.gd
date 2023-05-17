@@ -7,7 +7,6 @@ var target = Vector2.ZERO
 
 func _physics_process(delta):
 	var distance = (target - position).length()
-	print(target)
 	
 	# Input to set destination
 	if (Input.is_action_pressed("Rclick")):

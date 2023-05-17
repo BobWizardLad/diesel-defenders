@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://n1emffpko132"]
+[gd_scene load_steps=11 format=3 uid="uid://n1emffpko132"]
 
 [ext_resource type="Texture2D" uid="uid://cil8gu8gtremn" path="res://assets/1 Tiles/Map_tiles.png" id="1_0rxan"]
+[ext_resource type="Script" path="res://game_inst.gd" id="1_ycvy6"]
 [ext_resource type="Script" path="res://Unit.gd" id="2_37g3t"]
 [ext_resource type="Texture2D" uid="uid://peww3upx0yoi" path="res://assets/pawnlet.png" id="3_8vl7t"]
 [ext_resource type="Texture2D" uid="uid://c7st7f6u7xhnb" path="res://icon.svg" id="4_3d3qs"]
@@ -1797,6 +1798,7 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_upnn0"]
 
 [node name="GameInst" type="Node2D"]
+script = ExtResource("1_ycvy6")
 
 [node name="Map" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jcwgf")
@@ -1837,5 +1839,3 @@ texture = ExtResource("4_3d3qs")
 [node name="PlayerCam" type="Camera2D" parent="."]
 position = Vector2(160, 189)
 script = ExtResource("5_7d748")
-
-[node name="Node2D" type="Node2D" parent="."]
