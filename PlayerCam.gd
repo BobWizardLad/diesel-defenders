@@ -7,7 +7,7 @@ var dragging = false
 
 
 func _input(event):
-	if event.is_action("Lclick"):
+	if event.is_action("Mclick"):
 		if event.is_pressed():
 			mouse_start_pos = event.position
 			screen_start_position = position
