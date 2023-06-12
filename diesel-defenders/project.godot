@@ -14,3 +14,12 @@ config/name="Diesel-defenders"
 run/main_scene="res://Scenes/Map.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=768
+window/size/viewport_height=640
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
