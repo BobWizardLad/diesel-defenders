@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://yinrrla7ntrj"]
+[gd_scene load_steps=5 format=3 uid="uid://yinrrla7ntrj"]
 
 [ext_resource type="TileSet" uid="uid://c2nc2l6e26yyj" path="res://Scenes/Gameboard_Tileset.tres" id="1_txl70"]
 [ext_resource type="PackedScene" uid="uid://ca1gwgxkfdn7v" path="res://Unit.tscn" id="2_64vve"]
 [ext_resource type="Resource" uid="uid://d2q80n87gywn0" path="res://Grid.tres" id="3_cjwrc"]
+[ext_resource type="PackedScene" uid="uid://1773c01kxk3d" path="res://Cursor.tscn" id="4_o6vae"]
 
 [node name="Main" type="Node2D"]
 
@@ -18,3 +19,5 @@ layer_0/tile_data = PackedInt32Array(2, 0, 0, 0, 0, 0, 1, 0, 0, 65536, 0, 0, 131
 [node name="Unit" parent="." instance=ExtResource("2_64vve")]
 position = Vector2(16, 16)
 grid = ExtResource("3_cjwrc")
+
+[node name="Cursor" parent="." instance=ExtResource("4_o6vae")]
