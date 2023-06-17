@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://yinrrla7ntrj"]
+[gd_scene load_steps=6 format=3 uid="uid://yinrrla7ntrj"]
 
+[ext_resource type="Script" path="res://Scenes/GameMaster.gd" id="1_2le21"]
 [ext_resource type="TileSet" uid="uid://c2nc2l6e26yyj" path="res://Scenes/Gameboard_Tileset.tres" id="1_txl70"]
 [ext_resource type="PackedScene" uid="uid://ca1gwgxkfdn7v" path="res://Unit.tscn" id="2_64vve"]
 [ext_resource type="Resource" uid="uid://d2q80n87gywn0" path="res://Grid.tres" id="3_cjwrc"]
-[ext_resource type="PackedScene" uid="uid://1773c01kxk3d" path="res://Cursor.tscn" id="4_o6vae"]
+[ext_resource type="PackedScene" path="res://Cursor.tscn" id="4_o6vae"]
 
 [node name="Main" type="Node2D"]
 
 [node name="GameMaster" type="Node2D" parent="."]
+script = ExtResource("1_2le21")
 
 [node name="Grid" type="TileMap" parent="GameMaster"]
 position = Vector2(128, 128)
