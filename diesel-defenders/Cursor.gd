@@ -1,14 +1,12 @@
 # Cursor for interacting with the gameboard.
-# Fully signal-based no dependencies system.
+# Operates with signals and no direct dependencies beyond the singleton.
 class_name Cursor
 extends Node2D
 
-signal accept_pressed(cell)
-signal moved(new_cell)
-signal move_order(cell)
-signal selection(cell)
-
 @export var grid: Resource = load("res://Grid.tres")
+
+# Get the game master singleton
+@onready var gameMaster = get_node("/root/GameMaster")
 
 @onready var _timer: Timer = $Cooldown
 
@@ -32,7 +30,7 @@ func _unhandled_input(event):
 		set_cell(self.cell + Vector2.LEFT)
 	
 	if event.is_action("ui_select") && _timer.is_stopped():
-		emit_signal("move_order", cell)
+		gameMaster.emit_signal("move_order", cell)
 		_timer.start()
 
 # We use the draw callback to a rectangular outline the size of a grid cell, with a width of two
@@ -54,6 +52,6 @@ func set_cell(value: Vector2) -> void:
 	# cooldown timer that will limit the rate at which the cursor moves when we keep the direction
 	# key down.
 	position = grid.get_grid_snap(cell)
-	emit_signal("moved", cell)
+	gameMaster.emit_signal("moved", cell)
 	_timer.start()
 	

@@ -11,14 +11,19 @@ config_version=5
 [application]
 
 config/name="Diesel-defenders"
-run/main_scene="res://Scenes/Map.tscn"
+run/main_scene="res://Map.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameMaster="*res://GameMaster.gd"
+
 [display]
 
-window/size/viewport_width=768
-window/size/viewport_height=640
+window/size/viewport_width=1768
+window/size/viewport_height=1472
+window/stretch/scale=2.3
 
 [input]
 

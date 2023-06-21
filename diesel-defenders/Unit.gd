@@ -10,8 +10,6 @@ extends Path2D
 @export var move_speed = 50.0
 @export var skin: Texture
 
-signal walk_finished
-
 # Cell is location IN GRID not pixels
 var cell = Vector2.ZERO
 var points = []
@@ -23,7 +21,8 @@ var is_walking = false
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _path_follow: PathFollow2D = $Path
 
-@onready var _cursor: Node2D = load("res://Cursor.tscn").instantiate()
+# Get the game master singleton
+@onready var gameMaster = get_node("/root/GameMaster")
 
 # Setter for unit sprite
 func set_skin(texture: Texture) -> void:
@@ -58,7 +57,7 @@ func _ready() -> void:
 	
 	curve = Curve2D.new()
 	
-	_cursor.connect("move_order", on_move_order, CONNECT_PERSIST)
+	gameMaster.connect("move_order", on_move_order, CONNECT_PERSIST)
 
 func _process(delta: float) -> void:
 	# Progress along the path curve
@@ -71,7 +70,7 @@ func _process(delta: float) -> void:
 		position = grid.get_grid_snap(cell)
 		curve.clear_points()
 		
-		emit_signal("walk_finished")
+		gameMaster.emit_signal("walk_finished")
 
 func walk_along(path: PackedVector2Array) -> void:
 	if path.is_empty():
@@ -83,6 +82,7 @@ func walk_along(path: PackedVector2Array) -> void:
 	cell = path[-1]
 	self.set_is_walking(true)
 
-func on_move_order(cell) -> void:
-	points.append(cell)
+func on_move_order(location) -> void:
+	points.append(location)
 	walk_along(PackedVector2Array(points))
+	points.clear()

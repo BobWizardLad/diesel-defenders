@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkhyd6bs387wi"
-path="res://.godot/imported/DesertMockup.png-83055aaa5d2e9922c27663db1fcbd1ff.ctex"
+uid="uid://cpvaxf57uhfao"
+path="res://.godot/imported/DesertTilemap16x16.png-f43f802640ba27be2c2347ec30377377.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Tileset16x16/DesertMockup.png"
-dest_files=["res://.godot/imported/DesertMockup.png-83055aaa5d2e9922c27663db1fcbd1ff.ctex"]
+source_file="res://Tileset16x16/DesertTilemap16x16.png"
+dest_files=["res://.godot/imported/DesertTilemap16x16.png-f43f802640ba27be2c2347ec30377377.ctex"]
 
 [params]
 
