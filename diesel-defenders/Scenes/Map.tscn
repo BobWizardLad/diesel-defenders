@@ -10,7 +10,6 @@
 [node name="GameMaster" type="Node2D" parent="."]
 
 [node name="Grid" type="TileMap" parent="GameMaster"]
-position = Vector2(128, 128)
 tile_set = ExtResource("1_txl70")
 cell_quadrant_size = 32
 format = 2
@@ -21,3 +20,6 @@ position = Vector2(16, 16)
 grid = ExtResource("3_cjwrc")
 
 [node name="Cursor" parent="." instance=ExtResource("4_o6vae")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 192)

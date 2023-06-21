@@ -15,7 +15,7 @@ var _tile_offset = grid_offset / cell_size
 # Input the inner-grid position, get the map location by pixels
 # Used to snap nodes into the grid system
 func get_grid_snap(grid_position: Vector2) -> Vector2:
-	return (grid_position * cell_size + _cell_half) + grid_offset
+	return (grid_position * cell_size + _cell_half)
 
 # Input a pixel position on map, get the grid tile it is in
 # Used to relate map coordinates to grid tiles

@@ -14,12 +14,16 @@ signal walk_finished
 
 # Cell is location IN GRID not pixels
 var cell = Vector2.ZERO
+var points = []
+
 var is_selected = false
 var is_walking = false
 
 @onready var _sprite: Sprite2D = $Path/Sprite
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _path_follow: PathFollow2D = $Path
+
+@onready var _cursor: Node2D = load("res://Cursor.tscn").instantiate()
 
 # Setter for unit sprite
 func set_skin(texture: Texture) -> void:
@@ -54,15 +58,7 @@ func _ready() -> void:
 	
 	curve = Curve2D.new()
 	
-	# -------- TEST ZONE ---------------
-	var points := [
-		Vector2(0, 2),
-		Vector2(4, 2),
-		Vector2(4, 4),
-		Vector2(6, 4),
-	]
-	walk_along(PackedVector2Array(points))
-	# --------- ALERTA -----------------
+	_cursor.connect("move_order", on_move_order, CONNECT_PERSIST)
 
 func _process(delta: float) -> void:
 	# Progress along the path curve
@@ -86,3 +82,7 @@ func walk_along(path: PackedVector2Array) -> void:
 	
 	cell = path[-1]
 	self.set_is_walking(true)
+
+func on_move_order(cell) -> void:
+	points.append(cell)
+	walk_along(PackedVector2Array(points))
